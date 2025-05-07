@@ -4,11 +4,21 @@ import java.io.IOException;
 import java.util.Scanner;
 import ingressos_online.util.Cores;
 
+import ingressos_online.model.Evento;
+import ingressos_online.model.Festival;
+import ingressos_online.model.Show;
+
 public class Menu {
 
 	public static void main(String[] args) {
 		
 		int opcao;
+		
+		Show s1 = new Show(1, "From Zero World Tour", 1, 1500.99f, "Linkin Park");
+		s1.visualizar();
+		
+		Festival f1 = new Festival(1, "I Wanna Be Tour", 1, 700.99f, "Fall Out Boy, NX Zero, Pitty");
+		f1.visualizar();
 
 		Scanner scanner = new Scanner(System.in);
 		
