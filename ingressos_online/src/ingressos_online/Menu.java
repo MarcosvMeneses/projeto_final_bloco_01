@@ -73,22 +73,98 @@ public class Menu {
 		switch (opcao) {
 			case 1:
 				System.out.println("Criar Evento\n\n");
+
+				System.out.println("Digite o nome do Evento:");
+				scanner.skip("\\R");
+				nome = scanner.nextLine();
+
+				System.out.println("Digite o tipo do Produto, sendo 1 para Show e 2 para Festival:");
+				tipo = scanner.nextInt();
+
+				System.out.println("Digite o preço do Evento:");
+				preco = scanner.nextFloat();
+
+				switch (tipo) {
+				case 1 -> {
+					System.out.println("Digite a banda que vai se apresentar:");
+					scanner.skip("\\R");
+					show = scanner.nextLine();
+					evento.cadastrar(new Show(evento.gerarId(), nome, tipo, preco, show));
+				}
+				case 2 -> {
+					System.out.println("Digite o nome das atrações:");
+					scanner.skip("\\R");
+					festival = scanner.nextLine();
+					evento.cadastrar(new Festival(evento.gerarId(), nome, tipo, preco, festival));
+				}
+				}
+
 				keyPress();
 				break;
 			case 2:
-				System.out.println("Listar todos os eventos \n\n");
+				System.out.println("Listar todos os Eventos\n\n");
+				evento.listarTodas();
 				keyPress();
 				break;
 			case 3:
-				System.out.println("Buscar evento por ID\n\n");
+				System.out.println("Consultar dados do Evento - por número\n\n");
+
+				System.out.println("Digite o ID do Evento: ");
+				id = scanner.nextInt();
+
+				evento.procurarPorId(id);
+
 				keyPress();
 				break;
 			case 4:
-				System.out.println("Atualizar dados do evento\n\n");
+				System.out.println("Atualizar dados do Evento\n\n");
+
+				System.out.println("Digite o id do Evento: ");
+				id = scanner.nextInt();
+				
+				Optional<Evento> buscaEvento = evento.buscarNaCollection(id);
+	
+				if(buscaEvento.isPresent()) {
+					
+					System.out.println("Digite o nome do Evento:");
+					scanner.skip("\\R");
+					nome = scanner.nextLine();
+					
+					System.out.println("Digite o tipo do evento:");
+					scanner.skip("\\R");
+					tipo = Integer.parseInt(scanner.nextLine());
+
+	
+					System.out.println("Digite o preço do Evento:");
+					preco = scanner.nextFloat();
+	
+					switch (tipo) {
+						case 1 -> {
+							System.out.println("Digite a banda:");
+							scanner.skip("\\R");
+							show = scanner.nextLine();
+							evento.atualizar(new Show(id, nome, tipo, preco, show));
+						}
+						case 2 -> {
+							System.out.println("Digite as atrações:");
+							scanner.skip("\\R");
+							festival = scanner.nextLine();
+							evento.atualizar(new Festival(id, nome, tipo, preco, festival));
+						}
+					}
+				} else // Caso não exista a conta
+					System.out.printf("\n O Evento referente ao ID %d não existe!", id);
+
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Apagar conta\n\n");
+				System.out.println("Apagar Evento\n\n");
+
+				System.out.println("Digite o ID do Evento: ");
+				id = scanner.nextInt();
+
+				evento.deletar(id);
+
 				keyPress();
 				break;
 			default:

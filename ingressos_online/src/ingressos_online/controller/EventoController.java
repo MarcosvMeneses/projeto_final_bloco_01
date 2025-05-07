@@ -2,11 +2,13 @@ package ingressos_online.controller;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
+import java.util.Scanner;
 import ingressos_online.model.Evento;
 import ingressos_online.repository.EventosRepository;
 
 public class EventoController implements EventosRepository{
+	
+	Scanner scanner = new Scanner(System.in);
 	
 	private ArrayList<Evento> listaEventos = new ArrayList<Evento>();
 
@@ -24,8 +26,8 @@ public class EventoController implements EventosRepository{
 
 	@Override
 	public void listarTodas() {
-		for (var produto : listaEventos) {
-			produto.visualizar();
+		for (var evento : listaEventos) {
+			evento.visualizar();
 		}
 		
 	}
@@ -33,7 +35,8 @@ public class EventoController implements EventosRepository{
 	@Override
 	public void cadastrar(Evento evento) {
 		listaEventos.add(evento);
-		System.out.println("O Evento foi cadastrado com sucesso!");
+		System.out.println("O Evento foi criado com sucesso!");
+		
 	}
 
 	@Override
@@ -66,7 +69,7 @@ public class EventoController implements EventosRepository{
 
 
 	
-	private Optional<Evento> buscarNaCollection(int id2) {
+	public Optional<Evento> buscarNaCollection(int id2) {
 		for (var evento : listaEventos) {
 			if (evento.getId() == id)
 				return Optional.of(evento);
