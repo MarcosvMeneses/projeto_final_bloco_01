@@ -21,14 +21,12 @@ public class Menu {
 			System.out.println("                                                     ");
 			System.out.println("*****************************************************");
 			System.out.println("                                                     ");
-			System.out.println("            1 - Criar Conta                          ");
+			System.out.println("            1 - Criar Evento                         ");
 			System.out.println("            2 - Listar todos os eventos              ");
-			System.out.println("            3 - Buscar evento pot nome               ");
-			System.out.println("            4 - Atualizar Dados da Conta             ");
-			System.out.println("            5 - Apagar Conta                         ");
-			System.out.println("            6 - Comprar Ingresso                     ");
-			System.out.println("            7 - Transferir Ingresso                  ");
-			System.out.println("            8 - Sair                                 ");
+			System.out.println("            3 - Buscar evento por ID                 ");
+			System.out.println("            4 - Atualizar Dados do Evento            ");
+			System.out.println("            5 - Apagar Evento                        ");
+			System.out.println("            6 - Sair                                 ");
 			System.out.println("                                                     ");
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
@@ -36,7 +34,7 @@ public class Menu {
 			
 			opcao = scanner.nextInt();
 			
-			if (opcao == 8) {
+			if (opcao == 6) {
 				System.out.println("\nIngressos online agradece o acesso e otimos shows!!");
 				sobre();
                 scanner.close();
@@ -54,25 +52,18 @@ public class Menu {
 				keyPress();
 				break;
 			case 3:
-				System.out.println("Buscar evento pot nome\n\n");
+				System.out.println("Buscar evento por ID\n\n");
 				keyPress();
 				break;
 			case 4:
-				System.out.println("Comprar Ingresso \n\n");
+				System.out.println("Atualizar dados do Evento\n\n");
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Transferir Ingresso \n\n");
+				System.out.println("Apagar evento \n\n");
 				keyPress();
 				break;
-			case 6:
-				System.out.println("Atualizar Dados da Conta \n\n");
-				keyPress();
-				break;
-			case 7:
-				System.out.println("Apagar a Conta\n\n");
-				keyPress();
-				break;
+
 			default:
 				System.out.println("\nOpção Inválida!\n");
 				keyPress();
