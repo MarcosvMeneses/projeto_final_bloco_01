@@ -121,18 +121,19 @@ public class Menu {
 
 				System.out.println("Digite o id do Evento: ");
 				id = scanner.nextInt();
+				scanner.skip("\\R");
+
 				
 				Optional<Evento> buscaEvento = evento.buscarNaCollection(id);
 	
 				if(buscaEvento.isPresent()) {
 					
 					System.out.println("Digite o nome do Evento:");
-					scanner.skip("\\R");
 					nome = scanner.nextLine();
 					
 					System.out.println("Digite o tipo do evento:");
+					tipo = scanner.nextInt();
 					scanner.skip("\\R");
-					tipo = Integer.parseInt(scanner.nextLine());
 
 	
 					System.out.println("Digite o preço do Evento:");
