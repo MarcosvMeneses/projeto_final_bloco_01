@@ -6,7 +6,7 @@ public interface EventosRepository {
 		
 		public void procurarPorId(int id);
 		public void listarTodas();
-		public void cadastrar(Evento produto);
-		public void atualizar(Evento produto);
+		public void cadastrar(Evento evento);
+		public void atualizar(Evento evento);
 		public void deletar(int id);
 }

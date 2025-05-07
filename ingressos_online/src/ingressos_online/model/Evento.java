@@ -2,6 +2,8 @@ package ingressos_online.model;
 
 import java.text.NumberFormat;
 
+import ingressos_online.util.Cores;
+
 public abstract class Evento {
 	
 	private int id;
@@ -62,7 +64,7 @@ public abstract class Evento {
 			default -> tipo = "Inválido";
 		}
 
-		System.out.println("***************************************");
+		System.out.println(Cores.TEXT_GREEN_BOLD + Cores.ANSI_BLACK_BACKGROUND + "***************************************");
 		System.out.println("DADOS DO EVENTO                        ");
 		System.out.println("***************************************");
 		System.out.println("ID do Evento: " + this.id);

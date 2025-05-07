@@ -1,26 +1,44 @@
 package ingressos_online;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.Scanner;
 import ingressos_online.util.Cores;
 
 import ingressos_online.model.Evento;
 import ingressos_online.model.Festival;
 import ingressos_online.model.Show;
+import ingressos_online.controller.EventoController;
+
+
+
 
 public class Menu {
 
 	public static void main(String[] args) {
 		
 		int opcao;
-		
-		Show s1 = new Show(1, "From Zero World Tour", 1, 1500.99f, "Linkin Park");
-		s1.visualizar();
-		
-		Festival f1 = new Festival(1, "I Wanna Be Tour", 1, 700.99f, "Fall Out Boy, NX Zero, Pitty");
-		f1.visualizar();
+
+//		
+//		Festival f1 = new Festival(1, "I Wanna Be Tour", 2, 700.99f, "Fall Out Boy, NX Zero, Pitty");
+//		f1.visualizar();
 
 		Scanner scanner = new Scanner(System.in);
+		EventoController evento = new EventoController();
+		
+		int id, tipo;
+		String nome, show, festival;
+		float preco;
+		
+		Show s1 = new Show(evento.gerarId(),  "From Zero World Tour", 1, 1500.99f, "Linkin Park");
+		evento.cadastrar(s1);
+
+		Festival f1 = new Festival(evento.gerarId(), "I Wanna Be Tour", 2, 700.99f, "Fall Out Boy, NX Zero, Pitty");
+		evento.cadastrar(f1);
+		
+		
+		
+		
 		
 		while(true) {
 			
@@ -48,6 +66,7 @@ public class Menu {
 				sobre();
                 scanner.close();
 				System.exit(0);
+				
 			}
 		
 
