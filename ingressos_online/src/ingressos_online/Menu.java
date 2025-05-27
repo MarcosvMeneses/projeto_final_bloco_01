@@ -52,7 +52,7 @@ public class Menu {
 			System.out.println("            2 - Listar todos os eventos              ");
 			System.out.println("            3 - Buscar evento por ID                 ");
 			System.out.println("            4 - Atualizar Dados do Evento            ");
-			System.out.println("            5 - Apagar Conta                         ");
+			System.out.println("            5 - Apagar Evento                        ");
 			System.out.println("            6 - Sair                                 ");
 			System.out.println("                                                     ");
 			System.out.println("*****************************************************");
